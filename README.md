@@ -1,2 +1,11 @@
 # computor_v1
-decision polinom
+
+## What are solutions of such equations?
+- if degree == 0
+  - and c == 0, X can be any real number.
+  - and c != 0, the wrong inequality.
+- if degree == 1, X will always have one solution.
+- if degree == 2
+  - if discriminant = 0: equation have one real solution.
+  - if discriminant > 0: equation have two real solutions.
+  - if discriminant < 0: equation have two complex solutions.
