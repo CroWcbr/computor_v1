@@ -9,3 +9,10 @@
   - if discriminant = 0: equation have one real solution.
   - if discriminant > 0: equation have two real solutions.
   - if discriminant < 0: equation have two complex solutions.
+
+## Bonus
+- Manage entry mistakes (vocabulary and syntax)
+- Manage free form entrie
+- Display solution(s) as an irreducible fraction if it’s interesting - in progress (no idea)
+- Display the intermediate steps - in progress
+- complex solution - in progress
