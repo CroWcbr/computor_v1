@@ -25,11 +25,8 @@ std::string Computor_v1::_check_input(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		// std::cout << "Enter polinom : ";
-		// getline(std::cin, polinom);
-		//polinom = "+-+-+5 * X^0 + 4 * X^1 - 9.3 * X^2 = 1 * X^0";
-		//polinom = "91*x^0 - x^1 + 42 * x^2 = 1 - 20 * x + 36*x^2 + 10 * x ^5";
-		polinom = "x^2-4*x+0=0";
+		std::cout << "Enter polinom : ";
+		getline(std::cin, polinom);
 	}
 	else if (argc == 2)
 		polinom = argv[1];
@@ -140,7 +137,10 @@ double Computor_v1::_sqrt(double n) const //method Newton
 	for (;;) 
 	{
 		double nx = (x + n / x) / 2;
-		if (abs (x - nx) < EPS)
+		double delta = x - nx;
+		if (delta < 0)
+			delta *= -1;
+		if (delta < EPS)
 			break;
 		x = nx;
 	}
