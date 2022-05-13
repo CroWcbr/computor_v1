@@ -32,7 +32,6 @@ private:
 		_degree = 0;
 
 		int parse_begin = 0;
-		int parse_end = 0;
 
 		while(_i < _len)
 		{
@@ -71,9 +70,7 @@ private:
 					_degree += std::atoi(_tokens[_i].getLexem().c_str());
 				}
 				else
-				{
 					_degree++;
-				}
 			}
 			else if (type_i == token_type::ARGUMENT)
 			{
@@ -246,7 +243,6 @@ private:
 				_check_handle_error("_check_variable", i);
 		}
 
-		int tmp_degree = _degree;
 		if (i < _len - 1)
 		{
 			token_type type_next = _tokens[i + 1].getType();
@@ -261,14 +257,7 @@ private:
 			{
 				_check_degree(i + 1);
 				_check_argument(i + 2);
-				tmp_degree += std::atoi(_tokens[i + 2].getLexem().c_str());
 			}
-		}
-		else
-		{
-			tmp_degree++;
-			if (tmp_degree > 2)
-				_check_handle_error("_check_variable", i);
 		}
 	}
 
