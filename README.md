@@ -13,6 +13,6 @@
 ## Bonus
 - Manage entry mistakes (vocabulary and syntax)
 - Manage free form entrie
-- Display solution(s) as an irreducible fraction if it’s interesting - in progress (no idea)
+- Display solution(s) as an irreducible fraction if it’s interesting
 - Display the intermediate steps - in progress
 - complex solution - in progress
