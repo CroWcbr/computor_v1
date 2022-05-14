@@ -33,6 +33,8 @@ private:
 
 private:
 	Computor_v1();
+	Computor_v1(Computor_v1 const &copy);
+	Computor_v1 &operator=(Computor_v1 const &copy);
 
 	std::string			_check_input(int argc, char **argv);
 

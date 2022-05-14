@@ -13,6 +13,8 @@ private:
 
 private:
 	Lexer();
+	Lexer(Lexer const &copy);
+	Lexer &operator=(Lexer const &copy);
 
 	void _split()
 	{

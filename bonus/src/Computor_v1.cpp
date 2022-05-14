@@ -109,7 +109,10 @@ void Computor_v1::decision()
 	else if (_degree == 0)
 		_msg_decision = "Inequality is wrong : " + _c.toString() + " = 0" ;
 	else if (_degree == 1)
+	{
 		_msg_decision = "The solution is : " + Fraction(_c / _b * -1).toString();
+		_msg_decision_double = "The solution is : " + Fraction(_c / _b * -1).toStringDouble();
+	}
 	else if (_degree == 2)
 	{
 		_D = _b * _b + _a * _c * (-4);
@@ -126,8 +129,8 @@ void Computor_v1::decision()
 			else
 				_msg_decision = "First solution : " + _part_1.toString() + " + i * " + _part_2_sqrt._sqrtFraction().toString() + \
 								"\nSecond solution : " + _part_1.toString() + " - i * " + _part_2_sqrt._sqrtFraction().toString();		
-			_msg_decision_double = "First solution : " + _clear_arg(_part_1.toDouble())  + " + i * " + _clear_arg(_part_2_sqrt._sqrtDouble()) + \
-								   "\nSecond solution : " + _clear_arg(_part_1.toDouble()) + " - i * " + _clear_arg(_part_2_sqrt._sqrtDouble());
+			_msg_decision_double = "First solution : " + _part_1.toStringDouble()  + " + i * " + _clear_arg(_part_2_sqrt._sqrtDouble()) + \
+								   "\nSecond solution : " + _part_1.toStringDouble() + " - i * " + _clear_arg(_part_2_sqrt._sqrtDouble());
 		}
 		else if (_D.getNumerator() == 0)
 		{

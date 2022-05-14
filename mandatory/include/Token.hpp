@@ -73,8 +73,22 @@ public:
 		_type = _which_token_type(lexeme);
 	}
 
-	std::string const &getLexem() const { return _lexeme; }
-	token_type const &getType() const { return _type; }
+	Token(Token const &copy) 
+	{
+		*this = copy;
+	}
+
+	Token &operator=(Token const &copy)
+	{
+		if (this == &copy)
+			return *this;
+		_lexeme = copy._lexeme;
+		_type = copy._type;
+		return *this;
+	}
 
 	~Token() {}
+
+	std::string const &getLexem() const { return _lexeme; }
+	token_type const &getType() const { return _type; }
 };

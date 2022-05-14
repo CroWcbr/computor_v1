@@ -24,6 +24,8 @@ private:
 
 private:
 	Parse();
+	Parse(Parse const &copy);
+	Parse &operator=(Parse const &copy);
 
 	void _polinom_parse()
 	{
