@@ -124,8 +124,8 @@ private:
 
 	void _check_minus_plus(int i) const
 	{
-		if (i == 0)
-			;
+		// if (i == 0)
+		// 	;
 
 		if (i == _len - 1)
 			_check_handle_error("_check_minus_plus", i);
@@ -263,11 +263,11 @@ private:
 		if (_x != _tokens[i].getLexem())
 			_check_handle_error("_check_variable", i);
 
-		if (i == 0)
-			;
+		// if (i == 0)
+		// 	;
 
-		if (i == _len - 1)
-			;
+		// if (i == _len - 1)
+		// 	;
 
 		if (i > 0)
 		{
@@ -302,11 +302,11 @@ private:
 
 	void _check_argument(int i) const
 	{
-		if (i == 0)
-			;
+		// if (i == 0)
+		// 	;
 
-		if (i == _len - 1)
-			;
+		// if (i == _len - 1)
+		// 	;
 
 		if (i > 0)
 		{

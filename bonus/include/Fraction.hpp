@@ -27,6 +27,8 @@ private:
 
 	void _reduce()
 	{
+		if (_numerator == 0)
+			return ;
 		int gcd = _gcd(abs(_numerator), _denominator);
 		if (gcd != 1) 
 		{
@@ -93,7 +95,6 @@ public:
 		}
 		else
 			_numerator = std::atoi(num_str.c_str());
-
 		_reduce();
 	}
 

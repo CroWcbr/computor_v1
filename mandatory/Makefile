@@ -37,7 +37,7 @@ $(OBJ_DIR)	:
 				@mkdir -p $(OBJ_DIR)
 			
 $(OBJ_DIR)/%.o	:	$(SRC_DIR)/%.cpp ${HEADER_DIR}/*.hpp Makefile
-					$(CC) $(CFLAG) -c $< -o $@
+					$(CC) $(CFLAGS) -c $< -o $@
 
 $(NAME)		:	$(OBJ)
 				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)

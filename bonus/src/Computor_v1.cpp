@@ -2,6 +2,9 @@
 
 Computor_v1::Computor_v1(int argc, char **argv)
 {
+	// (void)argc;
+	// (void)argv;
+	// _input = "-3*x^2 = 8";
 	_input = _check_input(argc, argv);
 
 	Lexer lex(_input);
@@ -104,6 +107,7 @@ std::string Computor_v1::_reduce_form_double()
 
 void Computor_v1::decision()
 {
+	std::cout << "11!!!!!" << std::endl;
 	if (_degree == 0 && _c.getNumerator() == 0)
 		_msg_decision = "X may be any" ;
 	else if (_degree == 0)
@@ -115,10 +119,15 @@ void Computor_v1::decision()
 	}
 	else if (_degree == 2)
 	{
+		std::cout << "22!!!!!" << std::endl;
 		_D = _b * _b + _a * _c * (-4);
+std::cout << "33!!!!!" << std::endl;
+	std::cout << "\t : " <<  (_a * 2).toString() << std::endl;
+std::cout << "33!!!!!" << std::endl;
 		_part_1 = (_b * -1)/(_a * 2);
+		std::cout << "44!!!!!" << std::endl;
 		_part_2_sqrt = _D / (_a * _a * 2 * 2);
-		
+		std::cout << "55!!!!!" << std::endl;
 		if (_D.getNumerator() < 0)
 		{
 			_part_2_sqrt *= -1;

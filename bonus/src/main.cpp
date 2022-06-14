@@ -5,7 +5,9 @@ int main(int argc, char **argv)
 	try
 	{
 		Computor_v1 polinom(argc, argv);
+	std::cout << "!!!!!" << std::endl;
 		polinom.decision();
+	std::cout << "!!!!!" << std::endl;
 		polinom.polinom_print();
 	}
 	catch(const std::exception& e)
