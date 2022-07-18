@@ -31,6 +31,7 @@ SUCCESS		=	$(C_GOOD)SUCCESS$(C_NO)
 OK			=	$(C_OK)OK$(C_NO)
 
 all			:	$(NAME)
+bonus			:	$(NAME)
 
 $(OBJ)		: 	| $(OBJ_DIR)	
 
