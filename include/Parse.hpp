@@ -29,6 +29,9 @@ private:
 				_tokens[_tokens.size() - 1].getType() == token_type::VARIABLE))
 			_check_handle_error("_check_last_symbol", _tokens.size() - 1);
 
+		if (_tokens[0].getType() == token_type::VARIABLE)
+			_x = _tokens[0].getLexem();
+		
 		for(int i = 1, len = _tokens.size() - 1; i < len; i++)
 		{
 			token_type type_i = _tokens[i].getType();
