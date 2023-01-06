@@ -1,6 +1,7 @@
 #pragma once
 
 # include "Fraction.hpp"
+# include "Token.hpp"
 
 # include <string>
 # include <vector>
@@ -32,7 +33,7 @@ private:
 		if (_tokens[0].getType() == token_type::VARIABLE)
 			_x = _tokens[0].getLexem();
 		
-		for(int i = 1, len = _tokens.size() - 1; i < len; i++)
+		for(int i = 1, len = _tokens.size(); i < len; i++)
 		{
 			token_type type_i = _tokens[i].getType();
 			if (type_i == token_type::MINUS || type_i == token_type::PLUS)
@@ -89,7 +90,8 @@ private:
 	void _check_slash(int i) const
 	{
 		token_type type_prev = _tokens[i - 1].getType();
-		if (!(type_prev == token_type::ARGUMENT))
+		if (!(type_prev == token_type::ARGUMENT || 
+				type_prev == token_type::VARIABLE))
 			_check_handle_error("_check_slash", i);
 
 		token_type type_next = _tokens[i + 1].getType();
@@ -97,7 +99,7 @@ private:
 			_check_handle_error("_check_slash", i + 1);
 		
 		if (std::stod(_tokens[i + 1].getLexem().c_str()) == 0)
-			_check_handle_error("_check_slash", i + 1);
+			_check_handle_error("_check_slash zero division", i + 1);
 	}
 
 	void _check_degree(int i) const
@@ -132,7 +134,8 @@ private:
 		if (!(type_next == token_type::PLUS || \
 				type_next == token_type::MINUS || \
 				type_next == token_type::DEGREE || \
-				type_next == token_type::STAR))
+				type_next == token_type::STAR || \
+				type_next == token_type::SLASH))
 			_check_handle_error("_check_variable", i + 1);
 	}
 

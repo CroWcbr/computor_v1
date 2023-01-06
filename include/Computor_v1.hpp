@@ -1,6 +1,6 @@
 #pragma once
 
-# define BONUS 1
+# define BONUS 0
 
 # include "Token.hpp"
 # include "Lexer.hpp"

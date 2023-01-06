@@ -31,11 +31,11 @@ int main(int argc, char **argv)
 		Computor_v1 polinom(argc, argv);
 		polinom.decision();
 
-		// if (BONUS == 1)
+		if (BONUS == 1)					//const in Computor_v1.hpp
 			polinom.polinom_print_bonus();
-		// else
-		std::cout << std::endl;
+		else
 			polinom.polinom_print();
+		std::cout << std::endl;
 	}
 	catch(const std::exception& e)
 	{

@@ -2,19 +2,20 @@
 
 Computor_v1::Computor_v1(int argc, char **argv)
 {
-	// (void)argc;
-	// (void)argv;
-	// _input = "5/3*x*x^-2 - 0 - 2x + 3/5 = 0";
+	//(void)argc;
+	//(void)argv;
+	//_input = "5/3*x*x - 0 - 2x + 3/5 = 0";
+	//_input = "x*x = -9";
 	_input = _check_input(argc, argv);
 
 	Lexer lex(_input);
 	_tokens = lex.getTokens();
-	// _print_polinom_tokens();
+	_print_polinom_tokens();
 
 	Parse par(_tokens);
 	_pol = par.getPolinom();
 	_x = par.getX();
-	// _print_polinom_map();
+	_print_polinom_map();
 
 	_update_polinom_argument();
 }
@@ -38,6 +39,8 @@ void Computor_v1::_print_polinom_tokens()
 void Computor_v1::_print_polinom_map()
 {
 	std::cout << "_print_polinom_map : " << std::endl;
+	if (_pol.empty())
+		std::cout << "\t0\t:\t0\tpolinom map is empty" << std::endl;
 	for (auto &p : _pol)
 		std::cout << "\t" << p.first << "\t:\t" << p.second.toDouble() << std::endl;
 }
@@ -120,7 +123,13 @@ void Computor_v1::_update_polinom_argument()
 void Computor_v1::decision()
 {
 	if (_degree == 0 && _c.getNumerator() == 0)
-		_msg_decision = _msg_decision_double = _x + " may be any";
+	{
+		if (_x.empty())
+			_msg_decision = _msg_decision_double = "Unknown may be any";
+		else
+			_msg_decision = _msg_decision_double = "\"" + _x + "\" may be any";
+
+	}
 	else if (_degree == 0)
 	{
 		_msg_decision = "Inequality is wrong : " + _c.toString() + " = 0" ;
@@ -137,6 +146,9 @@ void Computor_v1::decision()
 	{
 		_part_1 = (_b * -1)/(_a * 2);
 		_part_2_sqrt = _D / (_a * _a * 2 * 2);
+		std::cout << _part_2_sqrt.toDouble() << std::endl;
+		std::cout << _D.toDouble() << std::endl;
+		std::cout << (_a * _a * 2 * 2).toDouble() << std::endl;
 		if (_D.getNumerator() < 0)
 		{
 			_part_2_sqrt *= -1;

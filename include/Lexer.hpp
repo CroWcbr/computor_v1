@@ -17,7 +17,7 @@ private:
 	Lexer &operator=(Lexer const &copy);
 
 	std::string _separate_digit_and_alpha(std::string const &polinom) const
-	{	// 2x -> 2 *x && x2 -> x * 2
+	{
 		std::string tmp = polinom;
 		for(size_t i = 0; i < tmp.size() - 1; i++)
 			if ((isdigit(tmp[i]) && isalpha(tmp[i + 1])) || \

@@ -13,6 +13,6 @@
 ## Bonus
 - Manage entry mistakes (vocabulary and syntax)
 - Manage free form entrie
-- Display solution(s) as an irreducible fraction
 - Display the intermediate steps
-- complex solution
+- Complex solution
+- Display solution(s) as an irreducible fraction (Additional fraction class)
