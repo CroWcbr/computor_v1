@@ -1,23 +1,9 @@
 NAME		=	computor_v1
 
-CC			=	c++ -std=c++17
-CFLAGS		=	-Wall -Werror -Wextra
+M_TASK		=	mandatory_task
+B_TASK		=	bonus_task
 
-HEADER_DIR	=	./include
-SRC_DIR		=	./src
-OBJ_DIR		=	./obj
-
-HEADER		=	Computor_v1.hpp \
-				Token.hpp \
-				Lexer.hpp \
-				Polinom.hpp \
-				Parse.hpp
-				
-SRC			=	main.cpp \
-				Computor_v1.cpp
-
-OBJ			=	$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
-
+OBJ_DIR		=	obj
 RM_DIR		=	rm -rf
 RM_FILE		=	rm -f
 
@@ -30,29 +16,24 @@ C_GOOD		=	"\033[32m"
 SUCCESS		=	$(C_GOOD)SUCCESS$(C_NO)
 OK			=	$(C_OK)OK$(C_NO)
 
-all			:	$(NAME)
-bonus			:	$(NAME)
+all			:
+				@make -C ${M_TASK}
+				cp ${M_TASK}/${NAME} ${NAME}
 
-$(OBJ)		: 	| $(OBJ_DIR)	
-
-$(OBJ_DIR)	:
-				@mkdir -p $(OBJ_DIR)
-			
-$(OBJ_DIR)/%.o	:	$(SRC_DIR)/%.cpp ${HEADER_DIR}/*.hpp Makefile
-					$(CC) $(CFLAGS) -c $< -o $@
-
-$(NAME)		:	$(OBJ)
-				$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
-				@echo "\tCompiling...\t" [ $(NAME) ] $(SUCCESS)
+bonus		:
+				@make -C ${B_TASK}
+				cp ${B_TASK}/${NAME} ${NAME}
 
 clean		:
 				@$(RM_DIR) $(OBJ_DIR)
-				@echo "\tCleaning...\t" [ $(OBJ_DIR) ] $(OK)
+				@echo "\tCleaning...\t" [ $(NAME) ] $(OK)
 
 fclean		:	clean
+				@$(RM_FILE) $(M_TASK)/$(NAME)
+				@$(RM_FILE) $(B_TASK)/$(NAME)
 				@$(RM_FILE) $(NAME)
 				@echo "\tDeleting...\t" [ $(NAME) ] $(OK)
 
 re			:	fclean all
 
-.PHONY		:	all, clean, fclean, re
+.PHONY		:	all, bonus, clean, fclean, re
