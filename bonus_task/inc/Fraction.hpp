@@ -1,6 +1,7 @@
 #pragma once
 
-# include <string>
+#include <string>
+#include <iostream>
 
 class Fraction
 {
@@ -72,7 +73,7 @@ public:
 		_denominator = 1;
 	} ;
 
-	Fraction(long int n, long int d)
+	Fraction(int n, int d)
 	{
 		_numerator = n;
 		_denominator = d;
@@ -235,4 +236,11 @@ public:
 
 		return Fraction(-1, 1);
 	}
+
+	friend std::ostream& operator<<(std::ostream& os, const Fraction& fraction)
+	{
+		os << fraction._numerator << '/' << fraction._denominator;
+		return os;
+	}
 };
+

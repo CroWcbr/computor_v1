@@ -67,6 +67,8 @@ private:
 	}
 
 public:
+	~Lexer() {};
+
 	Lexer(std::string const &polinom)
 	{
 		std::string tmp_str = _separate_digit_and_alpha(polinom);
@@ -76,9 +78,10 @@ public:
 			throw std::runtime_error("PARSE ERROR! There is no '='");
 
 		_tokens = _split(tmp_str.substr(0, equal_pos));
-		std::vector<Token>	right_tokens = _split(tmp_str.substr(++equal_pos));
 		if (_tokens.size() == 0)
 			throw std::runtime_error("PARSE ERROR! No LEFT part");
+
+		std::vector<Token>	right_tokens = _split(tmp_str.substr(++equal_pos));
 		if (right_tokens.size() == 0)
 			throw std::runtime_error("PARSE ERROR! No RIGHT part");
 
@@ -103,8 +106,6 @@ public:
 				_tokens.push_back(right_tokens[i]);
 		}
 	}
-
-	~Lexer() {};
 
 	std::vector<Token> const &getTokens() const { return _tokens; }
 };

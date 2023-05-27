@@ -1,6 +1,6 @@
 #pragma once
 
-# define BONUS 0
+# define DEBUG 1
 
 # include "Token.hpp"
 # include "Lexer.hpp"
@@ -42,18 +42,17 @@ private:
 	void				_update_polinom_argument();
 
 	std::string 		_reduce_form_fraction() const;
-	std::string 		_reduce_form_double() const;
 	std::string 		_clear_arg(double arg) const;
 
 	void				_print_input();
 	void				_print_polinom_tokens();
 	void				_print_polinom_map();
+	void				_print_polinom_argument();
 
 public:
 	Computor_v1(int argc, char **argv);
 	~Computor_v1();
 
 	void			decision();
-	void			polinom_print();
 	void			polinom_print_bonus();
 };

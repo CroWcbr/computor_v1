@@ -80,6 +80,8 @@ void Computor_v1::_update_polinom_argument()
 		_degree = _pol.rbegin()->first;
 	else
 		_degree = 0;
+	if (_degree > 2)
+		return ;
 	if (_pol.find(2) != _pol.end())
 		_a = _pol.find(2)->second;
 	if (_pol.find(1) != _pol.end())	

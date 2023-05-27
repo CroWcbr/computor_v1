@@ -33,7 +33,7 @@ private:
 		if (_tokens[0].getType() == token_type::VARIABLE)
 			_x = _tokens[0].getLexem();
 		
-		for(int i = 1, len = _tokens.size(); i < len; i++)
+		for(int i = 1, len = _tokens.size() - 1; i < len; i++)
 		{
 			token_type type_i = _tokens[i].getType();
 			if (type_i == token_type::MINUS || type_i == token_type::PLUS)
@@ -214,6 +214,6 @@ public:
 
 	~Parse() {};
 
-	std::map<int, Fraction> const &getPolinom() const { return _pol; }
-	std::string const &getX() const { return _x; }
+	const std::map<int, Fraction>&	getPolinom() const { return _pol; }
+	const std::string&				getX() const { return _x; }
 };
