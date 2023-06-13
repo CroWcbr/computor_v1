@@ -113,10 +113,7 @@ void	 Computor_v1::decision()
 {
 	if (_degree == 0 && _c == 0)
 	{
-		if (_x.empty())
-			_msg_decision = "Unknown may be any";
-		else
-			_msg_decision = "\"" + _x + "\" may be any";
+		_msg_decision = "\"" + _x + "\" may be any";
 	}
 	else if (_degree == 0)
 	{
@@ -134,7 +131,9 @@ void	 Computor_v1::decision()
 	{
 		if (_D < 0)
 		{
-			_msg_decision = "No desicion. D < 0";
+			// _msg_decision = "No desicion. D < 0";
+			_msg_decision = "First solution : " +  _double_to_string((-_b) / (2 * _a)) + " + i * " + _double_to_string(_sqrt(-_D) / (2 * _a)) + \
+				"\nSecond solution : " + _double_to_string((-_b) / (2 * _a)) + " - i * " + _double_to_string(_sqrt(-_D) / (2 * _a));
 		}
 		else if (_D == 0)
 		{

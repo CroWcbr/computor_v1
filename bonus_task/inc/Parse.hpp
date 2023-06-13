@@ -51,6 +51,8 @@ private:
 			else
 				throw std::runtime_error("NO ELSE POSSIBLE");
 		}
+		if (_tokens.back().getType() == token_type::VARIABLE && _tokens.back().getLexem() != _x)
+			_check_handle_error("_check_lasr_variable", _tokens.size() - 1);
 	}
 
 	void _check_handle_error(std::string msg, int i) const
@@ -210,6 +212,8 @@ public:
 	{
 		_check_polinom();
 		_polinom_parse();
+		if (_x.empty())
+			_x = "Unknown";
 	}
 
 	~Parse() {};

@@ -115,10 +115,7 @@ void Computor_v1::decision()
 {
 	if (_degree == 0 && _c.getNumerator() == 0)
 	{
-		if (_x.empty())
-			_msg_decision = _msg_decision_double = "\tUnknown may be any";
-		else
-			_msg_decision = _msg_decision_double = "\t\"" + _x + "\" may be any";
+		_msg_decision = _msg_decision_double = "\t\"" + _x + "\" may be any";
 	}
 	else if (_degree == 0)
 	{
